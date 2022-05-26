@@ -36,3 +36,12 @@ div{
     box-sizing: border-box;
     padding: 0 5px;
 }
+
+.completed{
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.completed .total{
+    color:#ccc;
+}

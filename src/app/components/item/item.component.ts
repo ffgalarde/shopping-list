@@ -21,4 +21,8 @@ export class ItemComponent implements OnInit {
     this.deleteItem.emit(item);
   }
 
+  onToggle(item:Item){
+    item.completed = !item.completed;
+  }
+
 }
