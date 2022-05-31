@@ -20,16 +20,18 @@ export class ItemsComponent implements OnInit {
     //this.items = this.itemService.getItem();
     this.itemService.getItem().subscribe( data => {
       this.items = data;
+      this.getTotal();
     })
-    this.getTotal();
   }
 
   deleteItem(item:Item){
     this.items = this.items.filter(x=>x.id!==item.id);
+    this.itemService.deteleItem(item).subscribe();
     this.getTotal()
   }
 
   toggleItem(item:Item){
+    this.itemService.togglItem(item).subscribe();
     this.getTotal();
   }
 
