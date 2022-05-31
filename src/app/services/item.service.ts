@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Item } from '../models/item';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
+  url:string ='http://localhost:3000/products';
   items:Item[] = [
       {
       id: 0,
@@ -30,10 +33,11 @@ export class ItemService {
       }
     ];
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getItem(){
-    return this.items;
+  getItem():Observable<Item[]>{
+    //return this.items;
+    return this.http.get<Item[]>(this.url);
   }
 
   addItem(item:Item){
