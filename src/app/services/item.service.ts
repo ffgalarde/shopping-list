@@ -9,6 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class ItemService {
 
   url:string ='http://localhost:3000/products';
+  httpOptions = {
+    headers:{
+      'Content-Type':'application/json'
+    }
+  };
   items:Item[] = [
       {
       id: 0,
@@ -40,7 +45,8 @@ export class ItemService {
     return this.http.get<Item[]>(this.url);
   }
 
-  addItem(item:Item){
-    this.items.unshift(item);
+  addItem(item:Item):Observable<Item>{
+    //this.items.unshift(item);
+    return this.http.post<Item>(this.url, item, this.httpOptions);
   }
 }
