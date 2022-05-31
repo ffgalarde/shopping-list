@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ItemService {
 
-  url:string ='http://localhost:3000/products/';
+  url:string ='http://localhost:3000/products';
   httpOptions = {
     headers:{
       'Content-Type':'application/json'
@@ -51,11 +51,11 @@ export class ItemService {
   }
 
   togglItem(item:Item):Observable<Item>{
-    return this.http.put<Item>(this.url + item.id, item, this.httpOptions);
+    return this.http.put<Item>(this.url + "/" + item.id, item, this.httpOptions);
   }
 
   deteleItem(item:Item):Observable<Item>{
-    return this.http.delete<Item>(this.url + item.id);
+    return this.http.delete<Item>(this.url + "/" + item.id);
   }
 
 }
