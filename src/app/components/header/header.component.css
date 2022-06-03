@@ -1,5 +1,5 @@
 menu{
-    background:rgb(23, 55, 160);
+    background:#508ec5;
     padding: 0;
     margin: 0;
 }
@@ -13,7 +13,7 @@ menu ul{
 
 menu ul li a{
     display: block;
-    color: white;
+    color: #fff;
     text-decoration: none;
     padding: 10px 15px;
 }
